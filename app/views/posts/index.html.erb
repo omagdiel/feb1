@@ -1,0 +1,13 @@
+<h1>Welcome to Owens Posts</h1>
+
+<%= link_to "Create New Post", new_post_path %>
+
+<% @posts.each do |post_item| %>
+  <p><%= link_to post_item.title, post_path(post_item)%> </p>
+  <p><%= post_item.subtitle%> </p>
+  <p><%= post_item.body%> </p>
+
+  <%=link_to "Edit", edit_post_path(post_item) %>
+
+  <td><%= link_to 'Delete Post', post_path(post_item), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+<% end %>
